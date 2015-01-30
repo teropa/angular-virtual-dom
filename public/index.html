@@ -7,7 +7,7 @@
   <div ng-init="hello = 'Hi'">
     <div v-root counter>
       lol {{counter}} lol
-      <ul>
+      <ul style="background-color: #{{counter % 256 | hex}}{{counter * 2 % 256 | hex}}{{counter * 3 % 256 | hex}}">
         <li>{{counter * 2}}</li>
         <li>{{counter * 3}}</li>
         <li>{{counter | json}}</li>
