@@ -26,7 +26,7 @@ module.exports = function (grunt) {
         banner: '<%= meta.banner %>\n\n'+
                 '/* commonjs package manager support */\n'+
                 'if (typeof module !== "undefined" && typeof exports !== "undefined" && module.exports === exports){\n'+
-                '  module.exports = \'teropa.virtual-dom\';\n'+
+                '  module.exports = \'teropa.virtualDom\';\n'+
                 '}\n\n'+
                 '(function (window, angular, undefined) {\n',
         footer: '})(window, window.angular);'
