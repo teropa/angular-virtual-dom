@@ -1,6 +1,6 @@
 /**
  * 
- * @version v0.0.1-dev-2015-02-04
+ * @version v0.0.0-dev-2015-02-04
  * @link https://github.com/teropa/angular-vdom
  * @license MIT License, http://www.opensource.org/licenses/MIT
  *
