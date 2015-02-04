@@ -1,6 +1,6 @@
 {
   "name": "angular-vdom",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "main": "./release/angular-vdom.js",
   "dependencies": {
     "angular": ">= 1.2.0",
