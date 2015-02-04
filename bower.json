@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "main": "./release/angular-vdom.js",
   "dependencies": {
-    "angular": ">= 1.2.0",
-    "virtual-dom": "git://github.com/Matt-Esch/virtual-dom#v1.3.0"
+    "angular": ">= 1.2.0"
   },
   "ignore": [
     "**/.*",
