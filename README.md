@@ -1,3 +1,5 @@
+# angular-virtual-dom
+
 angular-virtual-dom is an experimental [Virtual DOM](https://github.com/Matt-Esch/virtual-dom) based AngularJS view renderer designed to be used with immutable data structures such as [immutable-js](https://github.com/facebook/immutable-js) and [mori](http://swannodette.github.io/mori/).
 
 angular-virtual-dom lets you use regular AngularJS templates and expressions to bind data to the DOM, but uses Virtual DOM diffing behind the scenes.
@@ -80,7 +82,7 @@ The library is available as a Bower dependency:
 bower install angular-virtual-dom --save
 ```
 
-After installation, add one of the following two your loaded scripts:
+After installation, add one of the following to your loaded scripts:
 
 * `angular-virtual-dom/release/angular-virtual-dom.js`
 * `angular-virtual-dom/release/angular-virtual-dom.min.js`
@@ -187,7 +189,7 @@ The Virtual DOM nodes used by this library always hold a `$scope` attribute, ref
 
 ## Usage with Mutable Data Structures
 
-While angular-virtual-dom is designed to be used with immutable data structures, this is not a hard requirement. Regular, mutable JavaScript data structures and objects work just as well.
+While angular-virtual-dom is designed to be used with immutable data structures, it is not a hard requirement. Regular, mutable JavaScript data structures and objects work just as well.
 
 You will, however, need to manually trigger re-renders by reassigning `v-root` to a new value unless your code does so naturally.
 
