@@ -10,7 +10,7 @@ vdomFiles = {
     'src/v_if_directive.js',
     'src/v_repeat_directive.js',
     'src/v_root_directive.js',
-    'src/angular-vdom.js',
+    'src/angular-virtual-dom.js',
   ],
   testLib: [
     'lib/immutable.js',
