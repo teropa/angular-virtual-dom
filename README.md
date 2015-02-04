@@ -6,6 +6,8 @@ angular-virtual-dom lets you use regular AngularJS templates and expressions to 
 
 angular-virtual-dom supports extensibility using directives - though only with directives that are Virtual DOM aware. That means angular-virtual-dom is not a drop-in substitute for the AngularJS directive compiler, and is meant to be used in limited contexts.
 
+angular-virtual-dom works with AngularJS versions 1.2 and newer.
+
 ## Usage
 
 ```` js
@@ -199,6 +201,6 @@ Use Github issues for requests.
 
 ## Author
 
-[Tero Parviainen](https://teropa.info) ([@teropa on Twitter](https://twitter.com/teropa))
+[Tero Parviainen](http://teropa.info) ([@teropa on Twitter](https://twitter.com/teropa))
 
 Leans heavily on [virtual-dom by Matt-Esch](https://github.com/Matt-Esch/virtual-dom).
