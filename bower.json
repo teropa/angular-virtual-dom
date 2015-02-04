@@ -1,0 +1,24 @@
+{
+  "name": "angular-vdom",
+  "version": "0.0.1",
+  "main": "./release/angular-vdom.js",
+  "dependencies": {
+    "angular": ">= 1.2.0",
+    "virtual-dom": "git://github.com/Matt-Esch/virtual-dom#v1.3.0"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "component.json",
+    "package.json",
+    "lib",
+    "config",
+    "sample",
+    "test",
+    "tests",
+    "ngdoc_assets",
+    "Gruntfile.js",
+    "files.js"
+  ]
+}
