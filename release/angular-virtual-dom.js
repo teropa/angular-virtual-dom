@@ -1,6 +1,6 @@
 /**
  * 
- * @version v0.0.0
+ * @version v0.0.1
  * @link https://github.com/teropa/angular-virtual-dom
  * @license MIT License, http://www.opensource.org/licenses/MIT
  *
@@ -11,7 +11,7 @@
 
 /* commonjs package manager support */
 if (typeof module !== "undefined" && typeof exports !== "undefined" && module.exports === exports){
-  module.exports = 'teropa.virtual-dom';
+  module.exports = 'teropa.virtualDom';
 }
 
 (function (window, angular, undefined) {
@@ -1909,4 +1909,14 @@ angular.module('teropa.virtualDom.vRoot', ['teropa.virtualDom.virtualize', 'tero
       }
     };
   }]);
+
+angular.module('teropa.virtualDom', [
+  'teropa.virtualDom.getAttribute',
+  'teropa.virtualDom.cloneTree',
+  'teropa.virtualDom.virtualize',
+  'teropa.virtualDom.link',
+  'teropa.virtualDom.vIf',
+  'teropa.virtualDom.vRepeat',
+  'teropa.virtualDom.vRoot'
+]);
 })(window, window.angular);
