@@ -1,4 +1,4 @@
-angular.module('teropa.vdom.link', ['teropa.vdom.cloneTree'])
+angular.module('teropa.virtualDom.link', ['teropa.virtualDom.cloneTree'])
   .factory('linkVDom', ['$injector', '$interpolate', 'cloneVDomTree', function($injector, $interpolate, cloneVDomTree) {
     'use strict';
 

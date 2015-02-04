@@ -1,7 +1,7 @@
 {
-  "name": "angular-vdom",
+  "name": "angular-virtual-dom",
   "version": "0.0.0",
-  "main": "./release/angular-vdom.js",
+  "main": "./release/angular-virtual-dom.js",
   "dependencies": {
     "angular": ">= 1.2.0"
   },

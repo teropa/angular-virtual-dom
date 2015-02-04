@@ -1,4 +1,4 @@
-angular.module('teropa.vdom.getAttribute', [])
+angular.module('teropa.virtualDom.getAttribute', [])
   .factory('getVDomAttribute', function() {
     'use strict';
     return function getVDomAttribute(node, name) {

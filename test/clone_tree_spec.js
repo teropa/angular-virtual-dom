@@ -1,7 +1,7 @@
-describe('teropa.vdom.cloneTree', function() {
+describe('teropa.virtualDom.cloneTree', function() {
 
   var cloneVDomTree;
-  beforeEach(module('teropa.vdom.cloneTree'));
+  beforeEach(module('teropa.virtualDom.cloneTree'));
   beforeEach(inject(function(_cloneVDomTree_) {
     cloneVDomTree = _cloneVDomTree_;
   }));

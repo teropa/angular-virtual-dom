@@ -1,7 +1,7 @@
-describe('teropa.vdom.getAttribute', function() {
+describe('teropa.virtualDom.getAttribute', function() {
 
   var getVDomAttribute;
-  beforeEach(module('teropa.vdom.getAttribute'));
+  beforeEach(module('teropa.virtualDom.getAttribute'));
   beforeEach(inject(function(_getVDomAttribute_) {
     getVDomAttribute = _getVDomAttribute_;
   }));

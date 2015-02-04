@@ -1,4 +1,4 @@
-angular.module('teropa.vdom.vRepeat', ['teropa.vdom.getAttribute', 'teropa.vdom.cloneTree'])
+angular.module('teropa.virtualDom.vRepeat', ['teropa.virtualDom.getAttribute', 'teropa.virtualDom.cloneTree'])
   .directive('vRepeat', ['$parse', 'getVDomAttribute', 'cloneVDomTree', function($parse, getVDomAttribute, cloneVDomTree) {
     'use strict';
 

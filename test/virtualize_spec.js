@@ -1,7 +1,7 @@
-describe('teropa.vdom.virtualize', function() {
+describe('teropa.virtualDom.virtualize', function() {
 
   var virtualizeDom;
-  beforeEach(module('teropa.vdom.virtualize'));
+  beforeEach(module('teropa.virtualDom.virtualize'));
   beforeEach(inject(function(_virtualizeDom_) {
     virtualizeDom = _virtualizeDom_;
   }));

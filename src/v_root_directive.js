@@ -1,4 +1,4 @@
-angular.module('teropa.vdom.vRoot', ['teropa.vdom.virtualize', 'teropa.vdom.link'])
+angular.module('teropa.virtualDom.vRoot', ['teropa.virtualDom.virtualize', 'teropa.virtualDom.link'])
   .directive('vRoot', ['$injector', '$interpolate', 'virtualizeDom', 'linkVDom', function($injector, $interpolate, virtualizeDom, linkVDom) {
     'use strict';
 

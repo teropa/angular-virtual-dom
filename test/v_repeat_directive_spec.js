@@ -1,7 +1,7 @@
-describe('teropa.vdom.vRepeat', function() {
+describe('teropa.virtualDom.vRepeat', function() {
 
   var $rootScope, vRepeatDirective;
-  beforeEach(module('teropa.vdom.vRepeat', 'teropa.vdom.link'));
+  beforeEach(module('teropa.virtualDom.vRepeat', 'teropa.virtualDom.link'));
   beforeEach(inject(function(_$rootScope_, _linkVDom_, _vRepeatDirective_) {
     $rootScope = _$rootScope_;
     linkVDom = _linkVDom_;

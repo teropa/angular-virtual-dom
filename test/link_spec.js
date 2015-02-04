@@ -1,7 +1,7 @@
-describe('teropa.vdom.link', function() {
+describe('teropa.virtualDom.link', function() {
 
   var $rootScope, linkVDom;
-  beforeEach(module('teropa.vdom.link'));
+  beforeEach(module('teropa.virtualDom.link'));
   beforeEach(module(function($compileProvider) {
     $compileProvider.directive('virtualDirective', function() {
       return {

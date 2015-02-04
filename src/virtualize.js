@@ -1,4 +1,4 @@
-angular.module('teropa.vdom.virtualize', [])
+angular.module('teropa.virtualDom.virtualize', [])
   .factory('virtualizeDom', function() {
     'use strict';
 

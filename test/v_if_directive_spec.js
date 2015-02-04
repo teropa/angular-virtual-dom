@@ -1,7 +1,7 @@
-describe('teropa.vdom.vIf', function() {
+describe('teropa.virtualDom.vIf', function() {
 
   var $rootScope, vIfDirective;
-  beforeEach(module('teropa.vdom.vIf'));
+  beforeEach(module('teropa.virtualDom.vIf'));
   beforeEach(inject(function(_$rootScope_, _vIfDirective_) {
     $rootScope = _$rootScope_;
     vIfDirective = _vIfDirective_[0];

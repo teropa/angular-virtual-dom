@@ -1,7 +1,7 @@
 /**
  * 
  * @version v0.0.0-dev-2015-02-04
- * @link https://github.com/teropa/angular-vdom
+ * @link https://github.com/teropa/angular-virtual-dom
  * @license MIT License, http://www.opensource.org/licenses/MIT
  *
  * Bundles virtual-dom by Matt-Esch <matt@mattesch.info>
@@ -11,7 +11,7 @@
 
 /* commonjs package manager support */
 if (typeof module !== "undefined" && typeof exports !== "undefined" && module.exports === exports){
-  module.exports = 'teropa.vdom';
+  module.exports = 'teropa.virtual-dom';
 }
 
 (function (window, angular, undefined) {
@@ -1610,7 +1610,7 @@ function appendPatch(apply, patch) {
 },{}]},{},[4])(4)
 });
 
-angular.module('teropa.vdom.getAttribute', [])
+angular.module('teropa.virtualDom.getAttribute', [])
   .factory('getVDomAttribute', function() {
     'use strict';
     return function getVDomAttribute(node, name) {
@@ -1620,7 +1620,7 @@ angular.module('teropa.vdom.getAttribute', [])
     };
   });
 
-angular.module('teropa.vdom.cloneTree', [])
+angular.module('teropa.virtualDom.cloneTree', [])
   .factory('cloneVDomTree', function() {
     'use strict';
     return function cloneTree(tree) {
@@ -1636,7 +1636,7 @@ angular.module('teropa.vdom.cloneTree', [])
     };
   });
 
-angular.module('teropa.vdom.virtualize', [])
+angular.module('teropa.virtualDom.virtualize', [])
   .factory('virtualizeDom', function() {
     'use strict';
 
@@ -1683,7 +1683,7 @@ angular.module('teropa.vdom.virtualize', [])
 
   });
 
-angular.module('teropa.vdom.link', ['teropa.vdom.cloneTree'])
+angular.module('teropa.virtualDom.link', ['teropa.virtualDom.cloneTree'])
   .factory('linkVDom', ['$injector', '$interpolate', 'cloneVDomTree', function($injector, $interpolate, cloneVDomTree) {
     'use strict';
 
@@ -1769,7 +1769,7 @@ angular.module('teropa.vdom.link', ['teropa.vdom.cloneTree'])
 
   }]);
 
-angular.module('teropa.vdom.vIf', ['teropa.vdom.getAttribute'])
+angular.module('teropa.virtualDom.vIf', ['teropa.virtualDom.getAttribute'])
   .directive('vIf', ['$parse', 'getVDomAttribute', function($parse, getVDomAttribute) {
     'use strict';
     return {
@@ -1785,7 +1785,7 @@ angular.module('teropa.vdom.vIf', ['teropa.vdom.getAttribute'])
     };
   }]);
 
-angular.module('teropa.vdom.vRepeat', ['teropa.vdom.getAttribute', 'teropa.vdom.cloneTree'])
+angular.module('teropa.virtualDom.vRepeat', ['teropa.virtualDom.getAttribute', 'teropa.virtualDom.cloneTree'])
   .directive('vRepeat', ['$parse', 'getVDomAttribute', 'cloneVDomTree', function($parse, getVDomAttribute, cloneVDomTree) {
     'use strict';
 
@@ -1868,7 +1868,7 @@ angular.module('teropa.vdom.vRepeat', ['teropa.vdom.getAttribute', 'teropa.vdom.
     };
   }]);
 
-angular.module('teropa.vdom.vRoot', ['teropa.vdom.virtualize', 'teropa.vdom.link'])
+angular.module('teropa.virtualDom.vRoot', ['teropa.virtualDom.virtualize', 'teropa.virtualDom.link'])
   .directive('vRoot', ['$injector', '$interpolate', 'virtualizeDom', 'linkVDom', function($injector, $interpolate, virtualizeDom, linkVDom) {
     'use strict';
 
@@ -1909,14 +1909,4 @@ angular.module('teropa.vdom.vRoot', ['teropa.vdom.virtualize', 'teropa.vdom.link
       }
     };
   }]);
-
-angular.module('teropa.vdom', [
-  'teropa.vdom.getAttribute',
-  'teropa.vdom.cloneTree',
-  'teropa.vdom.virtualize',
-  'teropa.vdom.link',
-  'teropa.vdom.vIf',
-  'teropa.vdom.vRepeat',
-  'teropa.vdom.vRoot'
-]);
 })(window, window.angular);

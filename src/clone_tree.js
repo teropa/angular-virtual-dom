@@ -1,4 +1,4 @@
-angular.module('teropa.vdom.cloneTree', [])
+angular.module('teropa.virtualDom.cloneTree', [])
   .factory('cloneVDomTree', function() {
     'use strict';
     return function cloneTree(tree) {

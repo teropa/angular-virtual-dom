@@ -1,4 +1,4 @@
-angular.module('teropa.vdom.vIf', ['teropa.vdom.getAttribute'])
+angular.module('teropa.virtualDom.vIf', ['teropa.virtualDom.getAttribute'])
   .directive('vIf', ['$parse', 'getVDomAttribute', function($parse, getVDomAttribute) {
     'use strict';
     return {
