@@ -68,7 +68,15 @@ angular.module('myModule', ['teropa.virtualDom'])
 npm install angular-virtual-dom
 ```
 
-Include the module in your AngularJS modules:
+Require the module and include it in your AngularJS modules:
+
+``` js
+require('angular-virtual-dom')
+
+angular.module('myModule', ['teropa.virtualDom'])
+```
+
+Or just:
 
 ``` js
 angular.module('myModule', [
