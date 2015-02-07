@@ -18,7 +18,7 @@ angular.module('myModule', ['teropa.virtualDom'])
     this.myData = Immutable.fromJS({
       cols: [
         {name: 'One', cssClass: 'one', key: 'one'},
-        {name: 'Two', cssClsas: 'two', key, 'two'}
+        {name: 'Two', cssClass: 'two', key: 'two'}
       ],
       rows: [
         {one: 'A1', two: 'B1'},
@@ -32,7 +32,7 @@ angular.module('myModule', ['teropa.virtualDom'])
       this.myData = this.myData.updateIn(['rows'], function(rows) {
         return rows.push(Immutable.Map({one: 'A3', two: 'B3'}));
       });
-    }, 1000);
+    }.bind(this), 1000);
   });
 ````
 
@@ -49,7 +49,7 @@ angular.module('myModule', ['teropa.virtualDom'])
       <tr v-repeat="row in myCtrl.myData.get('rows')"
           class="{{$even ? 'even' : 'odd'}}">
         <th v-repeat="col in myCtrl.myData.get('cols')">
-          {{row.get(col.get('key')}}
+          {{row.get(col.get('key'))}}
         </th>
       </tr>
     </tbody>
