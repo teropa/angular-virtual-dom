@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body ng-app="myModule">
+    <div ng-controller="MyCtrl as myCtrl">
+      <table v-root="myCtrl.myData">
+        <thead>
+          <th v-repeat="col in myCtrl.myData.get('cols')"
+              class="{{col.get('cssClass')}}">
+            {{col.get('name')}}
+          </th>
+        </thead>
+        <tbody>
+          <tr v-repeat="row in myCtrl.myData.get('rows')"
+              class="{{$even ? 'even' : 'odd'}}">
+            <th v-repeat="col in myCtrl.myData.get('cols')">
+              {{row.get(col.get('key'))}}
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-virtual-dom/release/angular-virtual-dom.js"></script>
+    <script src="node_modules/immutable/dist/immutable.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
