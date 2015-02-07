@@ -1,6 +1,6 @@
 /**
  * 
- * @version v0.0.1-dev-2015-02-07
+ * @version v0.0.2-dev-2015-02-07
  * @link https://github.com/teropa/angular-virtual-dom
  * @license MIT License, http://www.opensource.org/licenses/MIT
  *
@@ -1871,6 +1871,30 @@ angular.module('teropa.virtualDom.vRepeat', ['teropa.virtualDom.getAttribute', '
     };
   }]);
 
+angular.module('teropa.virtualDom.vClick', ['teropa.virtualDom.getAttribute'])
+  .directive('vClick', ['$parse', 'getVDomAttribute', function($parse, getVDomAttribute) {
+
+    function ClickHook(expr, scope) {
+      this._onClick = function() {
+        scope.$apply(expr);
+      }
+    }
+    ClickHook.prototype.hook = function(node) {
+      node.addEventListener('click', this._onClick);
+    }
+    ClickHook.prototype.unhook = function(node) {
+      node.removeEventListener('click', this._onClick);
+    }
+
+    return {
+      linkVirtual: function(node) {
+        var expr = $parse(getVDomAttribute(node, 'v-click'));
+        node.properties.onClick = new ClickHook(expr, node.$scope);
+        return node;
+      }
+    };
+  }]);
+
 angular.module('teropa.virtualDom.vRoot', ['teropa.virtualDom.virtualize', 'teropa.virtualDom.link'])
   .directive('vRoot', ['$injector', '$interpolate', 'virtualizeDom', 'linkVDom', function($injector, $interpolate, virtualizeDom, linkVDom) {
     'use strict';
@@ -1920,6 +1944,7 @@ angular.module('teropa.virtualDom', [
   'teropa.virtualDom.link',
   'teropa.virtualDom.vIf',
   'teropa.virtualDom.vRepeat',
+  'teropa.virtualDom.vClick',
   'teropa.virtualDom.vRoot'
 ]);
 })(window, window.angular);

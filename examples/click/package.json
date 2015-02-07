@@ -1,0 +1,18 @@
+{
+  "name": "angular-virtual-dom-click-example",
+  "version": "0.0.1",
+  "description": "A click events example for angular-virtual-dom",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tero Parviainen <tero@teropa.info>",
+  "licenses": {
+    "type": "MIT",
+    "url": "https://github.com/teropa/angular-virtual-dom/blob/master/LICENSE"
+  },
+  "dependencies": {
+    "angular": "^1.3.12",
+    "immutable": "^3.6.2"
+  }
+}

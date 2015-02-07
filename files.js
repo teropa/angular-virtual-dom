@@ -10,6 +10,7 @@ vdomFiles = {
     'src/link.js',
     'src/v_if_directive.js',
     'src/v_repeat_directive.js',
+    'src/v_click_directive.js',
     'src/v_root_directive.js',
     'src/angular-virtual-dom.js',
   ],

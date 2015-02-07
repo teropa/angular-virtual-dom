@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <style type="text/css">
+      [ng-cloak] { display: none; }
+    </style>
+  </head>
+  <body ng-app="myModule" ng-cloak>
+    <div ng-controller="RootCtrl as rootCtrl"
+         v-root="rootCtrl.root">
+      <p>
+        {{rootCtrl.root.get('spades')}} spades
+        <button v-click="rootCtrl.increase('spades')">+</button>
+        <button v-click="rootCtrl.decrease('spades')">-</button>
+      </p>
+      <p>
+        {{rootCtrl.root.get('clubs')}} clubs
+        <button v-click="rootCtrl.increase('clubs')">+</button>
+        <button v-click="rootCtrl.decrease('clubs')">-</button>
+      </p>
+      <p>
+        {{rootCtrl.root.get('hearts')}} hearts
+        <button v-click="rootCtrl.increase('hearts')">+</button>
+        <button v-click="rootCtrl.decrease('hearts')">-</button>
+      </p>
+      <p>
+        {{rootCtrl.root.get('diamonds')}} diamonds
+        <button v-click="rootCtrl.increase('diamonds')">+</button>
+        <button v-click="rootCtrl.decrease('diamonds')">-</button>
+      </p>
+      <span v-repeat="n in rootCtrl.range('spades')">♠</span>
+      <span v-repeat="n in rootCtrl.range('clubs')">♣</span>
+      <span v-repeat="n in rootCtrl.range('hearts')" style="color: red">♥</span>
+      <span v-repeat="n in rootCtrl.range('diamonds')" style="color: red">♦</span>
+    </div>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="../../build/angular-virtual-dom.js"></script>
+    <script src="node_modules/immutable/dist/immutable.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

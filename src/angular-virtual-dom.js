@@ -5,5 +5,6 @@ angular.module('teropa.virtualDom', [
   'teropa.virtualDom.link',
   'teropa.virtualDom.vIf',
   'teropa.virtualDom.vRepeat',
+  'teropa.virtualDom.vClick',
   'teropa.virtualDom.vRoot'
 ]);
