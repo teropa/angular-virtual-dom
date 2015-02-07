@@ -64,7 +64,7 @@ angular.module('teropa.virtualDom.vRepeat', ['teropa.virtualDom.getAttribute', '
             value = iterator.next();
           }
           return result;
-        } else if (typeof repeater === 'object' && repeater !== null) {
+        } else if (typeof repeater === 'object' && repeater !== null) {
           return Object.keys(repeater).map(function(key, index) {
             var repeatNode = cloneVDomTree(node);
             repeatNode.$scope = node.$scope.$new();
