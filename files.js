@@ -4,6 +4,7 @@ vdomFiles = {
   ],
   src: [
     'src/get_attribute.js',
+    'src/directive_normalize.js',
     'src/clone_tree.js',
     'src/virtualize.js',
     'src/link.js',
