@@ -1,6 +1,7 @@
 # angular-virtual-dom
 
 [![npm version](https://badge.fury.io/js/angular-virtual-dom.svg)](http://badge.fury.io/js/angular-virtual-dom)
+[![Bower version](https://badge.fury.io/bo/angular-virtual-dom.svg)](http://badge.fury.io/bo/angular-virtual-dom)
 
 angular-virtual-dom is an experimental [Virtual DOM](https://github.com/Matt-Esch/virtual-dom) based AngularJS view renderer designed to be used with immutable data structures such as [immutable-js](https://github.com/facebook/immutable-js) and [mori](http://swannodette.github.io/mori/).
 
