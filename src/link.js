@@ -2,6 +2,17 @@ angular.module('teropa.virtualDom.link', ['teropa.virtualDom.cloneTree', 'teropa
   .factory('linkVDom', ['$injector', '$interpolate', 'directiveNormalize', 'cloneVDomTree', function($injector, $interpolate, directiveNormalize, cloneVDomTree) {
     'use strict';
 
+    function byPriority(a, b) {
+      var diff = b.priority - a.priority;
+      if (diff !== 0) {
+        return diff;
+      }
+      if (a.name !== b.name) {
+        return (a.name < b.name) ? -1 : 1;
+      }
+      return a.index - b.index;
+    }
+
     function getDirectives(node) {
       var dirs = [];
       if (node.properties && node.properties.attributes) {
@@ -12,7 +23,7 @@ angular.module('teropa.virtualDom.link', ['teropa.virtualDom.cloneTree', 'teropa
           }
         });
       }
-      return dirs;
+      return dirs.sort(byPriority);
     }
 
     function linkVisit(node, scope) {

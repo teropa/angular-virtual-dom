@@ -25,6 +25,7 @@ angular.module('teropa.virtualDom.vRepeat', ['teropa.virtualDom.getAttribute', '
 
     return {
       restrict: 'A',
+      priority: 1000,
       linkVirtual: function(node) {
         var expr = getVDomAttribute(node, 'v-repeat');
         var match = expr.match(/^\s*([\s\S]+?)\s+in\s+([\s\S]+?)\s*$/);

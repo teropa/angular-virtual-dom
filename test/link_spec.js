@@ -42,6 +42,41 @@ describe('teropa.virtualDom.link', function() {
         }
       };
     });
+    $compileProvider.directive('scopeAssigningDirective', function() {
+      return {
+        linkVirtual: function(node) {
+          node.$scope = node.$scope.$new();
+          node.$scope.assignedValue = node.properties.attributes['scope-assigning-directive'];
+        }
+      };
+    });
+    $compileProvider.directive('priority0Directive', function() {
+      return {
+        priority: 0,
+        linkVirtual: function(node) {
+          node.$scope.linked = node.$scope.linked || [];
+          node.$scope.linked.push(this.name);
+        }
+      };
+    });
+    $compileProvider.directive('anotherPriority0Directive', function() {
+      return {
+        priority: 0,
+        linkVirtual: function(node) {
+          node.$scope.linked = node.$scope.linked || [];
+          node.$scope.linked.push(this.name);
+        }
+      };
+    });
+    $compileProvider.directive('priority1Directive', function() {
+      return {
+        priority: 1,
+        linkVirtual: function(node) {
+          node.$scope.linked = node.$scope.linked || [];
+          node.$scope.linked.push(this.name);
+        }
+      };
+    });
   }));
   beforeEach(inject(function(_$rootScope_, _linkVDom_) {
     $rootScope = _$rootScope_;
@@ -159,6 +194,50 @@ describe('teropa.virtualDom.link', function() {
 
       expect(linked.properties.attributes.visited).toBe('yes');
 
+    });
+
+    it('links in priority order', function() {
+      var node = new virtualDom.VNode('div', {
+        attributes: {
+          'priority-0-directive': '',
+          'priority-1-directive': ''
+        }
+      });
+      var scope = $rootScope.$new();
+      var linked = linkVDom(node, scope);
+      expect(scope.linked).toEqual(['priority1Directive', 'priority0Directive']);
+
+      node = new virtualDom.VNode('div', {
+        attributes: {
+          'priority-1-directive': '',
+          'priority-0-directive': ''
+        }
+      });
+      scope = $rootScope.$new();
+      linked = linkVDom(node, $rootScope);
+      expect(scope.linked).toEqual(['priority1Directive', 'priority0Directive']);
+    });
+
+    it('links in alphabetical order when same priority', function() {
+      var node = new virtualDom.VNode('div', {
+        attributes: {
+          'priority-0-directive': '',
+          'another-priority-0-directive': ''
+        }
+      });
+      var scope = $rootScope.$new();
+      var linked = linkVDom(node, scope);
+      expect(scope.linked).toEqual(['anotherPriority0Directive', 'priority0Directive']);
+
+      node = new virtualDom.VNode('div', {
+        attributes: {
+          'another-priority-0-directive': '',
+          'priority-0-directive': ''
+        }
+      });
+      scope = $rootScope.$new();
+      linked = linkVDom(node, scope);
+      expect(scope.linked).toEqual(['anotherPriority0Directive', 'priority0Directive']);
     });
 
   });
