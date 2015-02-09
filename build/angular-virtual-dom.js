@@ -1,6 +1,6 @@
 /**
  * 
- * @version v0.0.1-dev-2015-02-07
+ * @version v0.0.2-dev-2015-02-09
  * @link https://github.com/teropa/angular-virtual-dom
  * @license MIT License, http://www.opensource.org/licenses/MIT
  *
@@ -1706,6 +1706,17 @@ angular.module('teropa.virtualDom.link', ['teropa.virtualDom.cloneTree', 'teropa
   .factory('linkVDom', ['$injector', '$interpolate', 'directiveNormalize', 'cloneVDomTree', function($injector, $interpolate, directiveNormalize, cloneVDomTree) {
     'use strict';
 
+    function byPriority(a, b) {
+      var diff = b.priority - a.priority;
+      if (diff !== 0) {
+        return diff;
+      }
+      if (a.name !== b.name) {
+        return (a.name < b.name) ? -1 : 1;
+      }
+      return a.index - b.index;
+    }
+
     function getDirectives(node) {
       var dirs = [];
       if (node.properties && node.properties.attributes) {
@@ -1716,7 +1727,7 @@ angular.module('teropa.virtualDom.link', ['teropa.virtualDom.cloneTree', 'teropa
           }
         });
       }
-      return dirs;
+      return dirs.sort(byPriority);
     }
 
     function linkVisit(node, scope) {
@@ -1777,6 +1788,7 @@ angular.module('teropa.virtualDom.vIf', ['teropa.virtualDom.getAttribute'])
     'use strict';
     return {
       restrict: 'A',
+      priority: 600,
       linkVirtual: function(node) {
         var expr = $parse(getVDomAttribute(node, 'v-if'));
         if (expr(node.$scope)) {
@@ -1815,6 +1827,7 @@ angular.module('teropa.virtualDom.vRepeat', ['teropa.virtualDom.getAttribute', '
 
     return {
       restrict: 'A',
+      priority: 1000,
       linkVirtual: function(node) {
         var expr = getVDomAttribute(node, 'v-repeat');
         var match = expr.match(/^\s*([\s\S]+?)\s+in\s+([\s\S]+?)\s*$/);
