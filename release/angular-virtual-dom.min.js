@@ -1,6 +1,6 @@
 /**
  * 
- * @version v0.1.0
+ * @version v0.1.1
  * @link https://github.com/teropa/angular-virtual-dom
  * @license MIT License, http://www.opensource.org/licenses/MIT
  *
