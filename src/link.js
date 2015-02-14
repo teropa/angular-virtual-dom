@@ -38,7 +38,7 @@ angular.module('teropa.virtualDom.link', ['teropa.virtualDom.cloneTree', 'teropa
           return nextNodes;
         }, [node]);
 
-        linkedNodes.forEach(function(node) {
+        linkedNodes = linkedNodes.map(function(node) {
           if (node.properties && node.properties.attributes) {
             Object.keys(node.properties.attributes).forEach(function(attrName) {
               var interpolateFn = $interpolate(node.properties.attributes[attrName]);
@@ -52,7 +52,10 @@ angular.module('teropa.virtualDom.link', ['teropa.virtualDom.cloneTree', 'teropa
           node.children.forEach(function(childNode) {
             linkedChildren.push.apply(linkedChildren, linkVisit(childNode, node.$scope));
           });
-          node.children = linkedChildren;
+          //node.children = linkedChildren;
+          var linkedNode = new virtualDom.VNode(node.tagName, node.properties, linkedChildren);
+          linkedNode.$scope = node.$scope;
+          return linkedNode;
         });
       } else {
         node.text = $interpolate(node.text)(node.$scope);
