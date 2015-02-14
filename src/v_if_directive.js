@@ -3,6 +3,7 @@ angular.module('teropa.virtualDom.vIf', ['teropa.virtualDom.getAttribute'])
     'use strict';
     return {
       restrict: 'A',
+      priority: 600,
       linkVirtual: function(node) {
         var expr = $parse(getVDomAttribute(node, 'v-if'));
         if (expr(node.$scope)) {
