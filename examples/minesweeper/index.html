@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="game.css">
+  </head>
+  <body ng-app="sweeperApp" ng-cloak>
+    <div ng-controller="GameController as ctrl"
+         v-root="ctrl.game">
+      <table class="board">
+        <tbody>
+          <tr v-repeat="row in ctrl.game.get('board').values()">
+            <td v-repeat="cell in row.values()"
+                v-click="ctrl.reveal(cell.get('coords'))">
+              <span v-if="cell.get('revealed') && !cell.get('mine')">
+                {{cell.get('adjacentMineCount')}}
+              </span>
+              <span v-if="(cell.get('revealed') || ctrl.isWon()) && cell.get('mine')">
+                &#9673;
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="lost" v-if="ctrl.isLost()">Lost!</p>
+      <p class="won" v-if="ctrl.isWon()">Won!</p>
+      <button v-click="ctrl.startGame()">Restart</button>
+    </div>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="../../build/angular-virtual-dom.js"></script>
+    <script src="node_modules/immutable/dist/immutable.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

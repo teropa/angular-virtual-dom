@@ -1,0 +1,22 @@
+[ng-cloak] {
+  display: none;
+}
+.board {
+  border-collapse: collapse;
+}
+.board td {
+  border: 1px solid #ddd;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+.lost, .won {
+  font-size: 1.5em;
+}
+.lost {
+  color: red;
+}
+.won {
+  color: green;
+}
