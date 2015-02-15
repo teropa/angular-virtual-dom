@@ -20,6 +20,7 @@
       <p class="lost" v-if="ctrl.isLost()">Lost!</p>
       <p class="won" v-if="ctrl.isWon()">Won!</p>
       <button v-click="ctrl.startGame()">Restart</button>
+      <button v-if="ctrl.canUndo()" v-click="ctrl.undo()">Undo</button>
     </div>
     <script src="node_modules/angular/angular.js"></script>
     <script src="../../build/angular-virtual-dom.js"></script>

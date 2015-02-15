@@ -6,6 +6,8 @@ angular.module('sweeperApp', ['teropa.virtualDom'])
     var nRows = 5;
     var nCols = 5;
 
+    var undoStack = Immutable.Stack();
+
     function inc(n) {
       return n + 1;
     }
@@ -55,6 +57,9 @@ angular.module('sweeperApp', ['teropa.virtualDom'])
     }
 
     function updateGame(fn) {
+      if (ctrl.game) {
+        undoStack = undoStack.unshift(ctrl.game);
+      }
       ctrl.game = fn(ctrl.game);
     }
 
@@ -118,6 +123,16 @@ angular.module('sweeperApp', ['teropa.virtualDom'])
         revealLastCell(cellPath);
       }
     };
+
+    this.canUndo = function() {
+      return !!undoStack.size;
+    }
+    this.undo = function() {
+      if (this.canUndo()) {
+        this.game = undoStack.peek();
+        undoStack = undoStack.shift();
+      }
+    }
 
     this.isWon = function() {
       return this.game.get('state') === 'won';
