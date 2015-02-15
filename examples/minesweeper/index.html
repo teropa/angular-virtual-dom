@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="game.css">
   </head>
   <body ng-app="sweeperApp" ng-cloak>
@@ -11,12 +12,7 @@
           <tr v-repeat="row in ctrl.game.get('board').values()">
             <td v-repeat="cell in row.values()"
                 v-click="ctrl.reveal(cell.get('coords'))">
-              <span v-if="cell.get('revealed') && !cell.get('mine')">
-                {{cell.get('adjacentMineCount')}}
-              </span>
-              <span v-if="(cell.get('revealed') || ctrl.isWon()) && cell.get('mine')">
-                &#9673;
-              </span>
+              {{ cell | cellValue: ctrl.isGameOver() }}
             </td>
           </tr>
         </tbody>

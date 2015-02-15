@@ -110,13 +110,21 @@ angular.module('sweeperApp', ['teropa.virtualDom'])
       }
     };
 
-    this.isLost = function() {
-      return this.game.get('state') === 'lost';
-    };
-
-    this.isWon = function() {
-      return this.game.get('state') === 'won';
+    this.isGameOver = function() {
+      var state = this.game.get('state');
+      return state === 'won' || state === 'lost';
     };
 
     this.startGame();
+  })
+  .filter('cellValue', function() {
+    return function(cell, gameOver) {
+      if (gameOver || cell.get('revealed')) {
+        if (!cell.get('mine')) {
+          return cell.get('adjacentMineCount');
+        } else {
+          return '◉';
+        }
+      }
+    }
   });
