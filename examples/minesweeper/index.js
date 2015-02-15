@@ -54,37 +54,46 @@ angular.module('sweeperApp', ['teropa.virtualDom'])
       });
     }
 
+    function updateGame(fn) {
+      ctrl.game = fn(ctrl.game);
+    }
+
     function revealMine(cellPath) {
-      ctrl.game = ctrl.game
-        .set('state', 'lost')
-        .setIn(cellPath.concat(['revealed']), true);
+      updateGame(function(game) {
+        return game.set('state', 'lost')
+                   .setIn(cellPath.concat(['revealed']), true);
+      });
     }
 
     function revealCell(cellPath) {
-      ctrl.game = ctrl.game
-        .update('revealedCellCount', inc)
-        .setIn(cellPath.concat(['revealed']), true);
+      updateGame(function(game) {
+        return game.update('revealedCellCount', inc)
+                   .setIn(cellPath.concat(['revealed']), true);
+      });
     }
 
     function revealLastCell(cellPath) {
-      ctrl.game = ctrl.game
-        .update('revealedCellCount', inc)
-        .set('state', 'won')
-        .setIn(cellPath.concat(['revealed']), true);
+      updateGame(function(game) {
+        return game.update('revealedCellCount', inc)
+                   .set('state', 'won')
+                   .setIn(cellPath.concat(['revealed']), true);
+      });
     }
 
     this.startGame = function() {
       var mines = generateMines();
-      ctrl.game = Immutable.Map({
-        state: 'ongoing',
-        cellCount: nRows * nCols,
-        revealedCellCount: 0,
-        mineCount: nMines,
-        board: range(0, nRows, function(row) {
-          return range(0, nCols, function(col) {
-            return makeCell(row, col, mines);
-          }).toOrderedMap();
-        }).toOrderedMap()
+      updateGame(function() {
+        return Immutable.Map({
+          state: 'ongoing',
+          cellCount: nRows * nCols,
+          revealedCellCount: 0,
+          mineCount: nMines,
+          board: range(0, nRows, function(row) {
+            return range(0, nCols, function(col) {
+              return makeCell(row, col, mines);
+            }).toOrderedMap();
+          }).toOrderedMap()
+        });
       });
     };
 
