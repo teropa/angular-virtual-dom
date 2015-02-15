@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "angular": "^1.3.12",
+    "delorean.js": "^0.8.5",
     "immutable": "^3.6.2"
   }
 }
