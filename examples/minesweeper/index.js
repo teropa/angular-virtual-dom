@@ -110,9 +110,14 @@ angular.module('sweeperApp', ['teropa.virtualDom'])
       }
     };
 
+    this.isWon = function() {
+      return this.game.get('state') === 'won';
+    }
+    this.isLost = function() {
+      return this.game.get('state') === 'lost';
+    }
     this.isGameOver = function() {
-      var state = this.game.get('state');
-      return state === 'won' || state === 'lost';
+      return this.isWon() || this.isLost();
     };
 
     this.startGame();
